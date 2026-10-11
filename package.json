@@ -1,0 +1,22 @@
+{
+  "name": "shishnagh-ctf",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "node --experimental-strip-types --test tests/layers.test.mjs && python3 -I tools/verify_puzzle.py",
+    "test:deploy": "node --test tests/deploy.test.mjs",
+    "check": "npm test && npm run build && npm run test:deploy",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mlc-ai/web-llm": "0.2.85"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  }
+}
